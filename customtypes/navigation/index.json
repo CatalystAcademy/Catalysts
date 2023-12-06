@@ -27,6 +27,15 @@
                 "placeholder": "Link for navigation item",
                 "select": null
               }
+            },
+            "blogs": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "Link for blogs",
+                "allowTargetBlank": false,
+                "select": null
+              }
             }
           }
         }
