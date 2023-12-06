@@ -10,7 +10,6 @@ import { components } from "@/slices";
 export async function generateMetadata() {
   const client = createClient();
   const page = await client.getByUID("page", "home");
-
   return {
     title: page.data.title,
     description: page.data.meta_description,

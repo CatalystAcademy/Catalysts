@@ -34,7 +34,6 @@ async function Header() {
   const client = createClient();
   const settings = await client.getSingle("settings");
   const navigation = await client.getSingle("navigation");
-
   return (
     <Bounded as="header" yPadding="sm">
       <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 leading-none">
