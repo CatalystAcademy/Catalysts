@@ -6,7 +6,8 @@ import { components } from "@/slices";
 
 /**
  * @returns {Promise<import("next").Metadata>}
- */
+ */ import { type } from "./../../prismicio-types.d";
+
 export async function generateMetadata() {
   const client = createClient();
   const page = await client.getByUID("page", "home");
@@ -27,6 +28,6 @@ export async function generateMetadata() {
 export default async function Page() {
   const client = createClient();
   const page = await client.getByUID("page", "home").catch(() => notFound());
-
+  // console.log(page.data.slices.find((slice) => slice.slice_type ==='blogs'));
   return <SliceZone slices={page.data.slices} components={components} />;
 }
