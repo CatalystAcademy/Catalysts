@@ -2,7 +2,7 @@ import "./globals.css";
 
 import { Inter } from "next/font/google";
 import { PrismicText } from "@prismicio/react";
-import { PrismicNextLink, PrismicPreview } from "@prismicio/next";
+import { PrismicNextImage, PrismicNextLink, PrismicPreview } from "@prismicio/next";
 import * as prismic from "@prismicio/client";
 
 import { createClient, repositoryName } from "@/prismicio";
@@ -35,12 +35,19 @@ async function Header() {
   const settings = await client.getSingle("settings");
   const navigation = await client.getSingle("navigation");
   return (
-    <Bounded as="header" yPadding="sm">
-      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 leading-none">
+    <Bounded as="header" yPadding="xs">
+      <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 leading-none">
         <PrismicNextLink
           href="/"
-          className="text-xl font-semibold tracking-tight"
+          className="text-xl font-semibold tracking-tight flex flex-wrap items-center"
         >
+          {prismic.isFilled.image(settings.data.logo) && (
+            <PrismicNextImage
+              className="mr-2"
+              field={settings.data.logo}
+              width="50"
+            />
+          )}
           <PrismicText field={settings.data.siteTitle} />
         </PrismicNextLink>
         <nav>

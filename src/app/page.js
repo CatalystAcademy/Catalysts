@@ -28,6 +28,7 @@ export async function generateMetadata() {
 export default async function Page() {
   const client = createClient();
   const page = await client.getByUID("page", "home").catch(() => notFound());
-  // console.log(page.data.slices.find((slice) => slice.slice_type ==='blogs'));
+  // const settings = await client.getByType("settings");
+  // console.log(settings.results[0].data.logo);
   return <SliceZone slices={page.data.slices} components={components} />;
 }

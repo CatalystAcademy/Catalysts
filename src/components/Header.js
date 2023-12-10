@@ -1,8 +1,6 @@
 import * as prismic from "@prismicio/client";
 import { PrismicText } from "@prismicio/react";
-import { PrismicNextLink } from "@prismicio/next";
-import { PrismicImage } from "@prismicio/react";
-
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { Bounded } from "./Bounded";
 
 export function Header({ navigation, settings }) {
@@ -13,8 +11,12 @@ export function Header({ navigation, settings }) {
           href="/"
           className="text-xl font-semibold tracking-tight"
         >
+           {prismic.isFilled.image(settings.data.logo) && (
+            <PrismicNextImage
+              field={settings.data.logo}
+            />
+          )} 
           <PrismicText field={settings.data.siteTitle} />
-          <PrismicImage field={settings.data.logo} alt="Site Logo" />
         </PrismicNextLink>
         <nav>
           <ul className="flex flex-wrap gap-6 md:gap-10">
