@@ -7,7 +7,7 @@ import config from "../slicemachine.config.json";
  */
 export const repositoryName =
   process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT || config.repositoryName;
-
+export const accessToken = process.env.PRISMIC_ACCESS_TOKEN || 'prismic-access-token';
 /**
  * The project's Prismic Route Resolvers. This list determines a Prismic document's URL.
  *
@@ -41,6 +41,7 @@ const routes = [
  */
 export const createClient = (config) => {
   const client = prismic.createClient(repositoryName, {
+    accessToken: accessToken,
     routes,
     fetchOptions:
       process.env.NODE_ENV === "production"
