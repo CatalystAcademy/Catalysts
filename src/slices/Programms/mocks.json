@@ -1,0 +1,60 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Enim voluptate ad laborum proident. Duis cupidatat elit commodo esse cupidatat ipsum."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"select_program",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "option one",
+							"type": "Select"
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"select_program",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "option one",
+							"type": "Select"
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"select_program",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "not second",
+							"type": "Select"
+						}
+					]
+				]
+			}
+		]
+	}
+]

@@ -1,0 +1,9 @@
+.nav-custom-sticky {
+    position: sticky;
+    top: 0;
+    background-color: #fff; /* Customize the background color */
+    z-index: 1000; /* Ensure the navigation is above other elements */
+  }
+  .p-custom-text {
+    color: yellowgreen;
+  }

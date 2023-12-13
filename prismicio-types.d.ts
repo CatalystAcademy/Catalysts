@@ -72,6 +72,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | ProgrammsSlice
   | Hero2Slice
   | HeroSlice
   | QuoteSlice
@@ -767,6 +768,67 @@ export type ImageCardsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Programms → Primary*
+ */
+export interface ProgrammsSliceDefaultPrimary {
+  /**
+   * description field in *Programms → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: programms.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Programms → Items*
+ */
+export interface ProgrammsSliceDefaultItem {
+  /**
+   * select program field in *Programms → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: ----Select-----
+   * - **Default Value**: option one
+   * - **API ID Path**: programms.items[].select_program
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  select_program: prismic.SelectField<"option one" | "not second", "filled">;
+}
+
+/**
+ * Default variation for Programms Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProgrammsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProgrammsSliceDefaultPrimary>,
+  Simplify<ProgrammsSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Programms*
+ */
+type ProgrammsSliceVariation = ProgrammsSliceDefault;
+
+/**
+ * Programms Shared Slice
+ *
+ * - **API ID**: `programms`
+ * - **Description**: Programms
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProgrammsSlice = prismic.SharedSlice<
+  "programms",
+  ProgrammsSliceVariation
+>;
+
+/**
  * Primary content in *Quote → Primary*
  */
 export interface QuoteSliceDefaultPrimary {
@@ -1049,6 +1111,11 @@ declare module "@prismicio/client" {
       ImageCardsSliceDefaultItem,
       ImageCardsSliceVariation,
       ImageCardsSliceDefault,
+      ProgrammsSlice,
+      ProgrammsSliceDefaultPrimary,
+      ProgrammsSliceDefaultItem,
+      ProgrammsSliceVariation,
+      ProgrammsSliceDefault,
       QuoteSlice,
       QuoteSliceDefaultPrimary,
       QuoteSliceVariation,

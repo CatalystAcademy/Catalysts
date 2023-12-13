@@ -2,8 +2,13 @@ import "./globals.css";
 
 import { Inter } from "next/font/google";
 import { PrismicText } from "@prismicio/react";
-import { PrismicNextImage, PrismicNextLink, PrismicPreview } from "@prismicio/next";
+import {
+  PrismicNextImage,
+  PrismicNextLink,
+  PrismicPreview,
+} from "@prismicio/next";
 import * as prismic from "@prismicio/client";
+import "../styles/Navigation.module.css"; // Import the CSS module
 
 import { createClient, repositoryName } from "@/prismicio";
 import { Bounded } from "@/components/Bounded";
@@ -65,7 +70,22 @@ async function Header() {
           </ul>
         </nav>
       </div>
-      <script type="text/javascript" dangerouslySetInnerHTML={{ __html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+          .nav-custom-sticky {
+            position: sticky;
+            top: 0;
+            background-color: #fff; /* Customize the background color */
+            z-index: 1000; /* Ensure the navigation is above other elements */
+          }
+          `,
+        }}
+      />
+      <script
+        type="text/javascript"
+        dangerouslySetInnerHTML={{
+          __html: `
           var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
           (function(){
             var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -75,7 +95,9 @@ async function Header() {
             s1.setAttribute('crossorigin','*');
             s0.parentNode.insertBefore(s1,s0);
           })();
-        `}} />
+        `,
+        }}
+      />
     </Bounded>
   );
 }
